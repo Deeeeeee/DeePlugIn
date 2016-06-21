@@ -1,0 +1,35 @@
+.dee-layer{
+	position: fixed;
+	top: -50px;
+	left: 50%;
+	padding: 5px 20px;
+	border-radius: 4px;
+	min-width: 100px;
+	background-color: rgba(0,0,0,.7);
+	opacity: 0;
+	color: #fff;
+	line-height: 40px;
+	text-align: center;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+}
+.dee-layer-show{
+	animation: modalShow 0.4s linear forwards;
+	-webkit-animation:modalShow 0.4s linear forwards;
+}
+.dee-layer-hide{
+	animation: modalHide 0.4s linear forwards;
+	-webkit-animation:modalHide 0.4s linear forwards;
+}
+
+@keyframes modalShow{
+	0% {top:0;opacity: 0;}
+	50% {top:50px;opacity: 0.5;}
+	100% {top: 100px;opacity: 1;}
+}
+@keyframes modalHide{
+	0% {top:100px;opacity: 1;}
+	50% {top:50px;opacity: 0.5;}
+	100% {top: 0;opacity: 0;}
+}
