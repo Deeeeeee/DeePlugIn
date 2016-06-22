@@ -20,6 +20,18 @@
             var num1 = 0;
             var num2 = 0;
 
+            // resize 更新 pageWidth (* 不能用函数节流，切换时改变尺寸 会出现留白)
+            $(window).on("resize",function () {
+                pageWidth = wrapper.innerWidth();
+                console.log(pageWidth);
+            });
+            function throttle(method, context) {
+                 clearTimeout(methor.tId);
+                 method.tId = setTimeout(function(){
+                     method.call(context);
+                 }, 100);
+            };
+            // 滚动函数
             function carousel (direction,speed){
                 pages.finish();
                 var left;
