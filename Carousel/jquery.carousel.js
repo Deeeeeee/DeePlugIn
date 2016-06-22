@@ -17,13 +17,16 @@
             var pages = _this.find(".carousel-page");
             var pageLength = pages.length;
             var pageWidth = wrapper.innerWidth();
+            var pageHeight = pages.outerHeight();
             var num1 = 0;
             var num2 = 0;
 
+            wrapper.css("height",pageHeight);
             // resize 更新 pageWidth (* 不能用函数节流，切换时改变尺寸 会出现留白)
             $(window).on("resize",function () {
                 pageWidth = wrapper.innerWidth();
-                console.log(pageWidth);
+                pageHeight =  pages.outerHeight();
+                wrapper.css("height",pageHeight);
             });
             function throttle(method, context) {
                  clearTimeout(methor.tId);
@@ -49,8 +52,8 @@
                     }
                     left = -pageWidth;
                 }
-                pages.eq(num1).css("left", -left).animate({left: 0},speed);
-                pages.eq(temp).animate({left: left},speed);
+                pages.eq(num1).css("left", -left).animate({left: 0},speed).addClass("active");
+                pages.eq(temp).animate({left: left},speed).removeClass("active");
                 if(settings.pagination){
                     var focus = _this.find(".carousel-pagination a");
                     focus.removeClass("current").eq(num1).addClass("current");
@@ -76,11 +79,11 @@
                     if (num1 == num2) {
                         return;
                     } else if (num1 < num2) {
-                        pages.eq(num2).css("left", pageWidth).animate({left: 0},settings.speed);
-                        pages.eq(num1).animate({left: -pageWidth},settings.speed);
+                        pages.eq(num2).css("left", pageWidth).animate({left: 0},settings.speed).addClass("active");
+                        pages.eq(num1).animate({left: -pageWidth},settings.speed).removeClass("active");
                     } else if (num1 > num2) {
-                        pages.eq(num2).css("left", -pageWidth).animate({left: 0},settings.speed);
-                        pages.eq(num1).animate({left: pageWidth},settings.speed);
+                        pages.eq(num2).css("left", -pageWidth).animate({left: 0},settings.speed).addClass("active");
+                        pages.eq(num1).animate({left: pageWidth},settings.speed).removeClass("active");
                     }
                     num1 = num2;
                     num2 = "";
