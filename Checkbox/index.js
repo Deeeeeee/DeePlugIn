@@ -1,4 +1,4 @@
-var page = {
+var CheckboxUI = {
     init: function () {
         this.initCheckbox();
     },
@@ -34,4 +34,4 @@ var page = {
         });
     }
 }
-page.init();
+CheckboxUI.init();
