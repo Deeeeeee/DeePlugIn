@@ -1,0 +1,39 @@
+.selectUI{
+    position: relative;
+    width: 200px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+    background-color: #fff;
+}
+.selectUI h5{
+    border: 1px solid #ddd;
+    padding: 0 10px;
+    margin: 0;
+}
+.selectUI ul{
+    background-color: #fff;
+    width: 100%;
+    height: 0;
+    left: 0;
+    top: 28px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transition: height .4s;
+    max-height: 300px;
+    overflow-y: auto;
+}
+/*.selectUI:hover ul{
+    height: auto;
+}*/
+.selectUI ul li{
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    border-top: none;
+}
+.selectUI ul li:hover,
+.selectUI ul li.checked
+{
+    background-color: #f0f0f0;
+}
