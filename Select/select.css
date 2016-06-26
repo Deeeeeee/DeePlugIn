@@ -1,28 +1,44 @@
 .selectUI{
     position: relative;
-    width: 200px;
+    display: inline-block;
+    width: 150px;
     height: 28px;
     line-height: 28px;
     font-size: 14px;
     background-color: #fff;
+    z-index: 1;
 }
 .selectUI h5{
+    position: relative;
     border: 1px solid #ddd;
     padding: 0 10px;
     margin: 0;
 }
+.selectUI h5:after{
+    content: " ";
+    position: absolute;
+    top: 13px;
+    right: 10px;
+    display: inline-block;
+    width:0;
+    height:0;
+    border:5px solid transparent;
+    border-top:5px solid #999;
+}
+
 .selectUI ul{
+    position: absolute;
     background-color: #fff;
     width: 100%;
     height: 0;
     left: 0;
-    top: 28px;
+    top: 30px;
     list-style: none;
     padding: 0;
     margin: 0;
     transition: height .4s;
     max-height: 300px;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 /*.selectUI:hover ul{
     height: auto;

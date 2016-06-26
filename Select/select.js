@@ -33,7 +33,13 @@
                 initListHeight: function () {
                     var liHeight = _this.find("ul li").outerHeight();
                     var totalHeight = liHeight * liNum;
-                    totalHeight = totalHeight > settings.maxHeight ? settings.maxHeight : totalHeight;
+                    if(totalHeight > settings.maxHeight){
+                        totalHeight = settings.maxHeight;
+                        oUl.css("overflow","auto");
+                    }else{
+                        oUl.css("overflow","hidden");
+                    }
+
                     return totalHeight;
                 },
                 onClick: function () {
