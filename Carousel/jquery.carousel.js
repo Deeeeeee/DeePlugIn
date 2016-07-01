@@ -8,7 +8,8 @@
             autoPlay: 3000,
             speed: 400,
             pagination: true,
-            controlButton: true
+            controlButton: true,
+            autoHeight: false, // 高度是否发生变化（img 宽度变化时高度自动变化）
         }, options);
 
         return this.each(function () {
@@ -17,16 +18,22 @@
             var pages = _this.find(".carousel-page");
             var pageLength = pages.length;
             var pageWidth = wrapper.innerWidth();
-            var pageHeight = pages.outerHeight();
             var num1 = 0;
             var num2 = 0;
 
-            wrapper.css("height",pageHeight);
+            if(settings.autoHeight){
+                var pageHeight = pages.outerHeight();
+                wrapper.animate({"height" : pageHeight});
+            }
             // resize 更新 pageWidth (* 不能用函数节流，切换时改变尺寸 会出现留白)
             $(window).on("resize",function () {
                 pageWidth = wrapper.innerWidth();
-                pageHeight =  pages.outerHeight();
-                wrapper.css("height",pageHeight);
+                if(settings.autoHeight){
+                    pageHeight =  pages.outerHeight();
+                    wrapper.css("height", pageHeight)
+                }
+
+
             });
             function throttle(method, context) {
                  clearTimeout(methor.tId);
