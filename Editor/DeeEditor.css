@@ -1,0 +1,45 @@
+.editor-container{
+	position: relative;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	font-family: 'Microsoft Yahei','Helvetica Neue',Helvetica,STHeiTi,Arial,sans-serif;
+}
+.editor-container .editor-menu-container {
+	border-bottom: 1px solid #ccc;
+	line-height: 30px;
+	zoom: 1;
+}
+.editor-container .editor-menu-container:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.editor-container .editor-menu-container .editor-menu-group{
+	float: left;
+	border-right: 1px solid #ccc;
+}
+.editor-container .editor-menu-container .editor-menu-group a {
+	display: inline-block;
+	color: #a0a0a0;
+	text-decoration: none;
+	padding: 0 5px;
+}
+.editor-container .editor-menu-container .editor-menu-group a:hover {
+	background-color: #eee;
+}
+.editor-container .editor-text {
+	height: 200px;
+	outline: none;
+}
+
+.editor-container .editor-text p,
+.editor-container .editor-text li {
+	margin: 0;
+	padding: 0;
+}
+.editor-container .editor-text p i {
+	font-style: italic;
+}
+.editor-container .editor-text p b {
+	font-weight: 700;
+}
