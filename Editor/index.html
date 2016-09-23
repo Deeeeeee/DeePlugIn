@@ -9,30 +9,62 @@
 <body>
 	<div class="editor-container">
 		<div class="editor-menu-container">
+			<!-- <div class="editor-menu-group">
+				<a class="editor-btn" data-role="undo" href="javascript:;">undo</a>
+				<a class="editor-btn" data-role="redo" href="javascript:;">redo</a>
+			</div> -->
 			<div class="editor-menu-group">
-				<a class="editor-btn-color" data-role="ForeColor" data-parmas="#f00" href="javascript:;">红色</a>
+				<a class="editor-btn" data-role="removeFormat" href="javascript:;">清除格式</a>
 			</div>
 			<div class="editor-menu-group">
-				<a class="editor-btn-ol" data-role="insertOrderedList" href="javascript:;">有序列表</a>
-				<a class="editor-btn-ul" data-role="insertUnorderedList" href="javascript:;">无序列表</a>
+				<a class="editor-btn" data-role="foreColor" data-parmas="#f00" href="javascript:;">红色</a>
+				<!-- <a class="editor-btn" data-role="bold" href="javascript:;">B</a> -->
 			</div>
+			<div class="editor-menu-group">
+				<a class="editor-btn" data-role="insertOrderedList" href="javascript:;">OL</a>
+				<a class="editor-btn" data-role="insertUnorderedList" href="javascript:;">UL</a>
+			</div>
+			<!-- <div class="editor-menu-group">
+				<a class="editor-btn" data-role="h2" href="javascript:;">H</a>
+				<a class="editor-btn" data-role="p" href="javascript:;">P</a>
+			</div> -->
 		</div>
 		<div class="editor-text" contenteditable="true">
-			12afaasdasdasdasdasdadas
-			asdfsdafsd
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim v
+			eniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex e
+			a commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum d
+			olore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in c
+			ulpa qui officia deserunt mollit anim id est laborum.
 		</div>
 	</div>
 	<script type="text/javascript">
 		$(".editor-menu-group a").on("click", function () {
-			var $this = $(this)
+			var $this = $(this);
 			switch($this.data('role')) {
                 case 'h1':
                 case 'h2':
                 case 'p':
                     document.execCommand('formatBlock', false, '<' + $this.data('role') + '>');
                     break;
-                case 'ForeColor':
-                	document.execCommand('ForeColor', false, $this.data('parmas'));
+                case 'removeFormat':
+                	var container = null;
+					if (document.selection) //for IE
+					    container = document.selection.createRange().parentElement();
+					else {
+					    var select = window.getSelection();
+					    if (select.rangeCount > 0)
+					        container = select.getRangeAt(0).startContainer.parentNode;
+					}
+					container.className == "editor-text" ? "" : $(container).contents().unwrap();
+                    break;
+                case 'foreColor':
+                	document.execCommand('foreColor', false, $this.data('parmas'));
+                	break;
                 default:
                     document.execCommand($this.data('role'), false, null);
                     break;
