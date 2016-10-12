@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div>
+		<select class="J_select"></select>
+	    <select class="J_select"></select>
+	    <select class="J_select"></select>
+	    <!-- <select class="J_select"></select> -->
+    </div>
+</body>
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.js"></script>
+<script src="jquery.levelSelect.js"></script>
+<script type="text/javascript">
+	var data = {
+		"0": ["AAA","BBB","CCC"],
+
+		"0_0": ["A1","A2","A3","A4"],
+		"0_1": ["B1","B2","B3","B4"],
+		"0_2": ["C1","C2","C3","C4"],
+
+		"0_0_0": ["A1-1","A1-2"],
+		"0_0_1": ["A2-1","A2-2","A2-3","A2-4"],
+		"0_0_2": ["A3-1","A3-2","A3-3","A3-4"],
+		"0_0_3": ["A4-1","A4-2","A4-3","A4-4"],
+
+		"0_1_0": ["B1-1","B1-2","B1-3","B1-4"],
+		"0_1_1": ["B2-1","B2-2","B2-3","B2-4"],
+		"0_1_2": ["B3-1","B3-2","B3-3"],
+		"0_1_3": ["B4-1","B4-2","B4-3","B4-4"],
+
+		"0_2_0": ["C1-1","C1-2","C1-3","C1-4"],
+		"0_2_1": ["C2-1","C2-2","C2-3","C2-4"],
+		"0_2_2": ["C3-1","C3-2","C3-3","C3-4"],
+		"0_2_3": ["C4-1","C4-2","C4-3","C4-4"]
+	};
+    var nameArr = ["Level-1","Level-2","Level-3"];
+
+	LevelSelect.init(".J_select",nameArr,data);
+
+	
+</script>
+</html>
