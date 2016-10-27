@@ -75,7 +75,7 @@
                         obj.find('.nextPage, .lastPage').addClass('disabled');
 
                     if (settings.jumpToPage) {
-                        obj.append('<span class="jumpToPage">跳转至<input type="text">页</span>');
+                        obj.append('<span class="jumpToPage">跳转至<input type="text">/'+settings.pageCount+'页</span>');
                     }
                 },
                 onChange: function (obj) {
@@ -100,10 +100,18 @@
                     if (settings.jumpToPage) {
                         obj.on("blur", "input", function () {
                             var num = parseInt($(this).val());
-                            if (num) {
+                            if(num < 1){
+                                num = 1;
+                            }else if(num > settings.pageCount){
+                                num = settings.pageCount
+                            }
+                            if(num && num != 0){
                                 settings.current = num;
                                 _this.initHtml(obj, settings);
+                            }else{
+                                console.warn("警告：错误的跳转页码")                                
                             }
+                            
                         })
                     }
                 }
