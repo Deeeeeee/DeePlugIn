@@ -1,0 +1,61 @@
+.pagination {
+    padding: 15px 20px;
+    text-align: center;
+    color: #ccc;
+}
+.pagination a {
+    display: inline-block;
+    color: #333;
+    height: 20px;
+    min-width: 20px;
+    line-height: 20px;
+    border: 1px solid #ccc;
+    margin: 0 2px;
+    vertical-align: middle;
+    text-decoration: none;
+    transition: .2s;
+}
+.pagination a:hover,
+.pagination a.current {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    min-width: 20px;
+    margin: 0 2px;
+    color: #fff;
+    background-color: #f00;
+    border: 1px solid #f00;
+    vertical-align: middle;
+}
+.pagination a.current{
+    cursor: default;
+}
+.pagination a.disabled {
+    display: inline-block;
+    height: 20px;
+    min-width: 20px;
+    line-height: 20px;
+    margin: 0 2px;
+    color: #bfbfbf;
+    background: #f2f2f2;
+    border: 1px solid #bfbfbf;
+    vertical-align: middle;
+    cursor: default;
+}
+.pagination .jumpToPage{
+	margin: 0 10px;
+	display: inline-block;
+	line-height: 20px;
+	font-size: 14px;
+	color: #333;
+    vertical-align: middle;
+}
+.pagination .jumpToPage input{
+	padding: 0;
+	height: 20px;
+    width: 30px;
+    text-align: center;
+    line-height: 20px;
+    border: 1px solid #bfbfbf;
+    margin: 0 2px;
+}
