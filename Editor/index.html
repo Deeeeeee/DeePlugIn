@@ -24,10 +24,10 @@
 				<a class="editor-btn" data-role="insertOrderedList" href="javascript:;">OL</a>
 				<a class="editor-btn" data-role="insertUnorderedList" href="javascript:;">UL</a>
 			</div>
-			<!-- <div class="editor-menu-group">
-				<a class="editor-btn" data-role="h2" href="javascript:;">H</a>
+			<div class="editor-menu-group">
+				<a class="editor-btn" data-role="h4" href="javascript:;">H</a>
 				<a class="editor-btn" data-role="p" href="javascript:;">P</a>
-			</div> -->
+			</div>
 		</div>
 		<div class="editor-text" contenteditable="true">
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -47,21 +47,21 @@
 			var $this = $(this);
 			switch($this.data('role')) {
                 case 'h1':
-                case 'h2':
+                case 'h4':
                 case 'p':
                     document.execCommand('formatBlock', false, '<' + $this.data('role') + '>');
                     break;
-                case 'removeFormat':
-                	var container = null;
-					if (document.selection) //for IE
-					    container = document.selection.createRange().parentElement();
-					else {
-					    var select = window.getSelection();
-					    if (select.rangeCount > 0)
-					        container = select.getRangeAt(0).startContainer.parentNode;
-					}
-					container.className == "editor-text" ? "" : $(container).contents().unwrap();
-                    break;
+     //            case 'removeFormat':
+     //            	var container = null;
+					// if (document.selection) //for IE
+					//     container = document.selection.createRange().parentElement();
+					// else {
+					//     var select = window.getSelection();
+					//     if (select.rangeCount > 0)
+					//         container = select.getRangeAt(0).startContainer.parentNode;
+					// }
+					// container.className == "editor-text" ? "" : $(container).contents().unwrap();
+     //                break;
                 case 'foreColor':
                 	document.execCommand('foreColor', false, $this.data('parmas'));
                 	break;
