@@ -1,0 +1,113 @@
+$width: 64px;
+$height: 64px;
+
+.upload-container{
+	font-family: 'Microsoft Yahei','Helvetica Neue',Helvetica,STHeiTi,Arial,sans-serif;
+    display: inline-block;
+    ul{
+    	list-style: none;
+    	zoom: 1;
+    	overflow: hidden;
+        padding: 0 !important;
+        li{
+            margin-bottom: 0!important;
+            position: relative;
+            float: left;
+            width: $width;
+            height: $height;
+            overflow: hidden;
+            margin-right: 10px;
+            a{
+            	text-decoration: none;
+            }
+            .delt{
+                position: absolute;
+                z-index: 99;
+                top: 0;
+                left: 0;
+                right: 0;
+                display: none;
+                height: $height;
+                background-color: rgba(0,0,0,.5);
+                color: #fff;
+                font-size: 30px;
+                line-height: $height;
+                text-align: center;
+            }
+            em.upload-loading{
+            	position: absolute;
+                z-index: 98;
+                top: 0;
+                left: 0;
+                width: $width;
+                height: $height;
+                // background-image: url(../img/loading.svg);
+                background-color: rgba(0,0,0,.5);
+                // background-size: cover; 
+                text-align: center;
+                line-height: $height;
+                color: #fff;
+            }
+            img{
+                float: left;
+                width: $width;
+                height: $height;
+                padding: 0;
+            }
+            span{
+                float: left;
+                height: $width;
+                width: $width;
+                padding: 0;
+            }
+            .attach-name{
+            	margin: 0;
+            	padding: 0;
+            	text-align: center;
+            	background-color: rgba(0,0,0, .3);
+            	color: #fff;
+            	width: 100%;
+            	position: absolute;
+            	bottom: 0;
+            }
+            .add-btn{
+                display: block;
+                width: $width - 2px;
+                height: $height - 2px;
+                border: 1px dashed #999;
+                text-align: center;
+                color: #999;
+                font-size: 50px;
+                line-height: 54px;
+            }
+            .attach-name{
+                font-size: 12px;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+.word{
+    background: url("../img/upload-file.png") -545px -0px no-repeat;
+}
+.images{
+    background: url("../img/upload-file.png") -225px -0px no-repeat;
+}
+.pdf{
+    background: url("../img/upload-file.png")  -305px -0px no-repeat;
+}
+.ppt{
+    background: url("../img/upload-file.png")  -380px -0px no-repeat;
+}
+.excel{
+    background: url("../img/upload-file.png") -150px -0px no-repeat;
+}
+.compressed{
+    background: url("../img/upload-file.png") -464px -0px no-repeat;
+}
+.plain-text{
+    background: url("../img/upload-file.png") -75px -0px no-repeat;
+}
+.cloud{
+    background: url("../img/upload-file.png") -0px -0px no-repeat;
+}

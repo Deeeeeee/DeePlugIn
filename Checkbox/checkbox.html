@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            input[type=radio],
+            input[type=checkbox]{
+                opacity: 0;
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                margin: 0;
+                padding: 0;
+            }
+            label[data-inputType]{
+                padding-left: 30px;
+                display: inline-block;
+                background: url("checkbox.gif") no-repeat;
+                background-position: -14px -16px
+            }
+            label:hover{
+                background-position: -14px -116px;
+            }
+            label.isChecked{
+                background-position: -14px -216px;
+            }
+        </style>
+    </head>
+    <body>
+        <h5>Radio</h5>
+        <input type="radio" name="sex" id="man">
+        <label for="man" data-inputType="radio">
+            man
+        </label>
+        <input type="radio" name="sex" id="woman">
+        <label for="woman" data-inputType="radio">
+            woman
+        </label>
+
+
+        <h5>Checkobox</h5>
+        <input type="checkbox" name="football" id="football">
+        <label for="football" data-inputType="ckeckbox">
+            football
+        </label>
+        <input type="checkbox" name="basketball" id="basketball">
+        <label for="basketball" data-inputType="ckeckbox">
+            basketball
+        </label>
+
+
+
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script src="index.js"></script>
+    </body>
+</html>

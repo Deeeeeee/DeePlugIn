@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="jquery.pagination.css">
+</head>
+<body>
+	<div class="J_pagination pagination"></div>
+	<!-- <button id="reset">更改分页</button> -->
+	<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.pagination.js"></script>
+	<script type="text/javascript">
+		$(".J_pagination").setPage({
+			pageCount: 30,
+			callback: function (p) {
+				console.log(p)
+			}
+		});
+
+		// $("#reset").on("click", function () {
+		// 	$(".J_pagination").setPage({
+		// 		pageCount: 20,
+		// 		callback: function (p) {
+		// 			console.log(p)
+		// 		}
+		// 	});
+		// })
+
+	</script>
+</body>
+</html>

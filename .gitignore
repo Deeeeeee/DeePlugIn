@@ -1,1 +1,4 @@
 bower_compontents/
+.idea/
+.git/
+Upload/node_modules/

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Upload</title>
+	<link rel="stylesheet" type="text/css" href="static/css/upload.min.css">
+</head>
+<body>
+
+	<h3>上传图片</h3>	
+	<div id="demo1-attach-container" class="upload-container">
+		<ul class="clearfix">
+			<li id="demo1-attach-button-wrapper">
+				<a id="demo1-add-attach-button" class="add-btn" href="javascript:;">+</a> 
+			</li>
+		</ul>
+	</div>
+
+	<hr>
+
+	<h3>上传文件</h3>	
+	<div id="demo2-attach-container" class="upload-container">
+		<ul class="clearfix">
+			<li id="demo2-attach-button-wrapper">
+				<a id="demo2-add-attach-button" class="add-btn" href="javascript:;">+</a> 
+			</li>
+		</ul>
+	</div>
+
+
+	<script type="text/javascript" src="static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="static/js/plupload.full.min.js"></script>
+	<script type="text/javascript" src="static/js/upload.js"></script>
+	<script type="text/javascript">
+		var demo1Obj = {};
+		var demo2Obj = {};
+		upload("demo1-attach-container", "demo1-attach-button-wrapper", "demo1-add-attach-button", 2, demo1Obj, "image");
+		upload("demo2-attach-container", "demo2-attach-button-wrapper", "demo2-add-attach-button", 2, demo2Obj, "file");
+	</script>
+</body>
+</html>
