@@ -19,6 +19,7 @@
                     this.initHtml($this, settings);
                     this.onChange($this);
                 },
+
                 initHtml: function (obj, args) {
                     obj.empty();
                     var current = args.current,
@@ -49,9 +50,9 @@
                             startNum = current - leftNum;
                         if (startNum < 1) { // console.log("前");
                             start = 0;
-                            end = endNum + (1 - startNum);
+                            end = start + pageBarSize;
                         } else if (endNum > pageCount) { // console.log("后");
-                            start = startNum - (endNum - pageCount) - 1;
+                            start = pageCount - pageBarSize;
                             end = pageCount;
                         } else { // console.log("中");
                             start = startNum - 1;
@@ -78,6 +79,7 @@
                         obj.append('<span class="jumpToPage">跳转至<input type="text">/'+settings.pageCount+'页</span>');
                     }
                 },
+
                 onChange: function (obj) {
                     var _this = this;
                     obj.unbind(); // 防止多次渲染分页时 事件多次绑定
