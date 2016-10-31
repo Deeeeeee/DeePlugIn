@@ -96,7 +96,7 @@
 
                         settings.current = num;
                         _this.initHtml(obj, settings);
-                        typeof(settings.callback == "function") && settings.callback(num);
+                        typeof(settings.callback) == "function" && settings.callback(num);
                     });
 
                     if (settings.jumpToPage) {
