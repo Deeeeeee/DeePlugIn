@@ -110,6 +110,7 @@
                             if(num && num != 0){
                                 settings.current = num;
                                 _this.initHtml(obj, settings);
+                                typeof(settings.callback) == "function" && settings.callback(num);
                             }else{
                                 console.warn("警告：错误的跳转页码")                                
                             }
