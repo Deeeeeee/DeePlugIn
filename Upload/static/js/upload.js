@@ -9,7 +9,7 @@
      * @param addBtnWrapper     {String} 按钮容器 id
      * @param addBtn            {String} 添加按钮 id 
      * @param limit             {Number} 限制上传个数
-     * @param obj               {Object} 数据
+     * @param obj               {Object} 数据 (当limit==1  obj只存url, url = obj.url ; 当limit>1, obj存id&url, 通过遍历获取)
      * @param type              {String} 上传类型  "image" 图片  "file" 文件
      */
     function upload(attachBox, addBtnWrapper, addBtn, limit, obj, type) {
@@ -34,6 +34,10 @@
         attachContainer.on('mouseleave', '.attach-box', function () {
             $(this).find('.delt').css('display', 'none');
         });
+
+        if(limit <= 10){
+            attachContainer.find('ul').addClass("fileLimit"+limit);
+        }
 
         function previewImage(file, callback) {//file为plupload事件监听函数参数中的file对象,callback为预览图片准备完成的回调函数
             if (!file || !/image\//.test(file.type)) return; //确保文件是图片
@@ -211,10 +215,14 @@
                     set_upload_param(up, function () {
                         if (info.status == 200) {
                             var response = JSON.parse(info.response);
-                            obj[file.id] = {
-                                id: response.id,
-                                url: response.url
-                            };
+                            if(limit === 1){
+                                obj.url=response.url;
+                            }else{
+                                obj[file.id] = {
+                                    id: response.id,
+                                    url: response.url
+                                };
+                            }
                             $("a[data-fileid="+ file.id +"]").siblings(".upload-loading").fadeOut();
                             console.log(obj);
 
