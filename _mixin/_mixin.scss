@@ -1,0 +1,68 @@
+@mixin close($color:#fff,$backgroundColor:#f00,$size:26px,$borderSize:2px) {
+	position: relative;
+	width: $size;
+	height: $size;
+	background-color: $backgroundColor;
+	border-radius: 50%;
+	&::after,
+	&::before{
+		content:"";
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: $size/2;
+		height: $borderSize;
+		background-color: $color;
+		transform: translate(-50%,-50%) rotate(45deg);
+		-webkit-transform: translate(-50%,-50%) rotate(45deg);
+
+	}
+	&::before{
+		transform: translate(-50%,-50%) rotate(-45deg);
+		-webkit-transform: translate(-50%,-50%) rotate(-45deg);
+	}
+}
+
+@mixin loadIcon($size: 40px, $color: #3498db, $borderSize: 3px, $backgroundColor: #fff) {
+	position: relative;
+	width: $size;
+	height: $size;
+	border: $borderSize solid $color;
+	border-radius: 50%;
+	animation: load 2s linear infinite;
+    -webkit-animation: load 2s linear infinite;
+	&::before{
+		content: "";
+		position: absolute;
+		z-index: 1;
+		left: 50%;
+		top: - 2.5*$borderSize;
+		width: 0;
+		height: 0;
+		border-top: 2*$borderSize solid transparent;
+		border-left: 4 * $borderSize solid $color;
+		border-bottom: 2*$borderSize solid transparent;
+
+	}
+	&::after{
+		content: "";
+		position: absolute;
+		top: -$borderSize;
+		right: -$borderSize;
+		background-color: $backgroundColor;
+		width: ($size+$borderSize)/2;
+		height: ($size+$borderSize)/2;
+	}
+	@keyframes load
+	{
+	    from {transform: rotate(0);}
+	    to {transform: rotate(360deg);}
+	}
+	 
+	@-webkit-keyframes load /* Safari 与 Chrome */
+	{
+	    from {transform: rotate(0);}
+	    to {transform: rotate(360deg);}
+	}
+
+}
