@@ -19,7 +19,7 @@
         var address = {
             serverUrl: "http://122.224.199.228:8060/service/osssignature",    // 开发
             // serverUrl: "http://122.224.199.228:8080/service/osssignature",      // 测试
-            //serverUrl: "http://112.124.3.182:8080/service/osssignature",      // 生产
+            // serverUrl: "http://112.124.3.182:8080/service/osssignature",      // 生产
 
             aliyunUrl: "http://oss-cn-shanghai.aliyuncs.com"
 
@@ -44,15 +44,21 @@
             if (file.type == 'image/gif') {//gif使用FileReader进行预览,因为mOxie.Image只支持jpg和png
                 var fr = new mOxie.FileReader();
                 fr.onload = function () {
+                    console.log("b:"+file.name)
+
                     callback(fr.result);
                     fr.destroy();
                     fr = null;
                 };
                 fr.readAsDataURL(file.getSource());
             } else {
+                
                 var preloader = new mOxie.Image();
+                console.log(typeof (preloader.onload))
+
                 preloader.onload = function () {
-                    //preloader.downsize( 640, 640 );//先压缩一下要预览的图片,宽300，高300
+                    console.log("b:"+file.name)
+                    // preloader.downsize( 640, 640 );//先压缩一下要预览的图片,宽300，高300
                     //得到图片src,实质为一个base64编码的数据
                     var imgsrc = preloader.type == 'image/jpeg' ? preloader.getAsDataURL('image/jpeg', 80) : preloader.getAsDataURL();
                     callback && callback(imgsrc); //callback传入的参数为预览图片的url
@@ -106,7 +112,7 @@
                     callbackFun();
                 },
                 error: function () {
-                    alert('获取签名信息失败');
+                    console.error('获取签名信息失败');
                 }
             });
         }
@@ -153,7 +159,7 @@
                 mime_types: mime_types,
                 prevent_duplicates: true //不允许选取重复文件
             },
-            multi_selection: false,
+            multi_selection: false, // 多选
             init: {
                 PostInit: function (up) {
                     attachContainer.on('click', '.delt', function () {
@@ -171,15 +177,21 @@
                     var size = attachContainer.find('li').not('#' + addBtnWrapper).size();
                     var totalLength = size + files.length;
                     if (totalLength > limit) {
-                        up.splice(size <= limit ? size : limit, totalLength - limit);
-                        files.splice(limit - size, totalLength - limit);
                         alert("最多上传"+limit + "个");
+                 
+                        // 清空上传列表
+                        files.splice(0,files.length);
+                        up.files.splice(0,up.files.length);
+                        return
                     }
+
                     plupload.each(files, function (file) {
                         var fileid = file.id;
                         var filename = file.name;
-                        if (type === "image") {
+
+                        if (/image\//.test(file.type)) {
                             previewImage(file, function (imgsrc) {
+                                console.log("c:"+file.name)
                                 var pictureString = '<li class="attach-box">' +
                                     '<a class="delt heit" href="javascript:;" data-fileid="' + fileid + '" title="' + filename + '">X</a>' +
                                     '<em class="upload-loading"></em>'+
@@ -187,7 +199,7 @@
                                     '</li>';
                                 addAttachButton.parent().before(pictureString);
                             });
-                        }else if (type === "file") {
+                        }else{
                             previewAttach(file, function (attachType) {
                                 var pictureString = '<li class="attach-box">' +
                                     '<a class="delt heit" href="javascript:;" data-fileid="' + fileid + '">X</a>' +
