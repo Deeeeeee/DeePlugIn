@@ -1,0 +1,9 @@
+@import "./_mixin.scss";
+
+.close{
+	@include close()
+}
+
+.load{
+	@include loadIcon()
+}
