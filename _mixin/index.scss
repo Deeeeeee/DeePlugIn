@@ -7,3 +7,7 @@
 .load{
 	@include loadIcon()
 }
+
+.btn{
+	@include button()
+}
